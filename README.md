@@ -1,4 +1,3 @@
-````markdown
 # Lesson 05: Essential CSS and Responsive UX
 
 > Front-End Development — Year 1, Semester 2  
@@ -568,4 +567,3 @@ For sharing:
 Adapted from `FED_Lesson_05_Essential_CSS_Responsive_UX.pdf` (51 pages). The source names MDN resources on Flexbox, media query fundamentals, box-sizing, CSS length units and fundamental text styling for further reading.
 
 The Campus Workshop Directory task brief and testing template are added teaching materials. A complete implementation is intentionally not provided so that students can apply and demonstrate the lesson concepts independently.
-````
