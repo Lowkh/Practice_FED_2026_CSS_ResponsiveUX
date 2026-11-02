@@ -1,9 +1,12 @@
+````markdown
 # Lesson 05: Essential CSS and Responsive UX
 
 > Front-End Development — Year 1, Semester 2  
 > Organise content. Arrange it. Adapt it.
 
-This GitHub-ready guide adapts the uploaded lesson slides into step-by-step notes and a worked practical. The Campus Workshop Directory code below is a newly written teaching example, not a copy of starter files supplied with the slides.
+This guide introduces essential CSS concepts through short examples, group research and an independent practical. In the practical, you will build and test a responsive Campus Workshop Directory using the concepts taught in this lesson.
+
+The examples demonstrate individual concepts. A complete practical implementation is intentionally not provided: you will write your own HTML and CSS and explain your decisions.
 
 ## Contents
 
@@ -19,6 +22,8 @@ This GitHub-ready guide adapts the uploaded lesson slides into step-by-step note
 - [Step 8: Debug systematically](#step-8-debug-systematically)
 - [Group research](#group-research)
 - [Exit check](#exit-check)
+- [After class](#after-class)
+- [Source note](#source-note)
 
 ## Learning outcomes
 
@@ -27,7 +32,7 @@ By the end of this lesson, you should be able to:
 1. Organise content with consistent spacing, text sizes and weights.
 2. Explain what a declared width includes using `box-sizing`.
 3. Use Flexbox for direction, alignment, wrapping and flexible sizing.
-4. Adapt a layout at `768px` and `1024px`.
+4. Adapt a layout at `768px` and optionally enhance it at `1024px`.
 5. Inspect, test and explain a layout decision and a corrected issue.
 
 ## Lesson plan
@@ -39,7 +44,7 @@ By the end of this lesson, you should be able to:
 | Selected sharing | 25 min | Explain and compare |
 | Tutor synthesis | 20 min | Consolidate and debug |
 | Practical briefing | 10 min | Understand files and tasks |
-| Supported practical | 35 min | Apply the CSS |
+| Supported practical | 35 min | Apply the CSS independently |
 | Exit check | 5 min | Explain and continue |
 
 ## Step 1: Understand the box model
@@ -240,6 +245,8 @@ Place this inside the HTML `head`:
 
 ### 5.2 Start with a stacked heading
 
+The following example uses a book catalogue heading:
+
 ```css
 .catalogue-heading {
   display: flex;
@@ -264,7 +271,7 @@ Base styles apply at every width. They do not stop applying on larger screens.
 
 The query adds a conditional change; it does not replace the stylesheet. The base `gap` still applies.
 
-### 5.4 Add the desktop enhancement
+### 5.4 Add a desktop enhancement
 
 ```css
 @media (min-width: 1024px) {
@@ -277,6 +284,8 @@ The query adds a conditional change; it does not replace the stylesheet. The bas
   }
 }
 ```
+
+For this demonstration:
 
 | Viewport | Matching rules | Heading layout |
 | --- | --- | --- |
@@ -289,13 +298,17 @@ The query adds a conditional change; it does not replace the stylesheet. The bas
 
 Cards can wrap through Flexbox without a media query. The heading's deliberate direction change demonstrates why a media query is useful.
 
+The `1024px` enhancement is optional in the practical. If you implement it, choose a change that helps your content rather than copying the demonstration without a reason.
+
 ## Step 6: Build the Campus Workshop Directory
 
-### Scope
+### Your task
 
-Build a text-only responsive directory. Registration, filtering, APIs and JavaScript are outside this practical's scope.
+Create a text-only, responsive directory that helps students explore campus workshops.
 
-The following is a complete worked example adapted from the lesson concepts. The lesson makes the `1024px` practical enhancement optional; it is included here for demonstration.
+Apply the concepts from this lesson to organise the content, arrange the workshop cards and adapt the layout for different viewport widths. You must write your own HTML and CSS.
+
+Registration, filtering, APIs and JavaScript are outside this practical's scope.
 
 ### 6.1 Create the project structure
 
@@ -307,202 +320,105 @@ campus-workshop-directory/
 └── checks.md
 ```
 
-Use this guide as `README.md`. Create the HTML and CSS using the following code, and copy the test template in Step 7 into `checks.md`.
+Use the files as follows:
 
-### 6.2 Add index.html
+| File | Purpose |
+| --- | --- |
+| `index.html` | Your page structure and content |
+| `styles.css` | Your styling and responsive layout |
+| `README.md` | A short project description and instructions for opening the page |
+| `checks.md` | Your test results and explanations, using the template in Step 7 |
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Campus Workshop Directory</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main class="page">
-    <header class="catalogue-heading">
-      <div>
-        <p class="eyebrow">Learn something new</p>
-        <h1>Campus Workshop Directory</h1>
-      </div>
-      <p class="catalogue-summary">
-        Explore practical workshops for students.
-      </p>
-    </header>
+Write a project-specific README. You do not need to copy this lesson guide into your submission.
 
-    <section class="workshop-list" aria-label="Available workshops">
-      <article class="workshop-card">
-        <h2 class="workshop-title">HTML Foundations</h2>
-        <p class="workshop-details">Beginner · 2 hours</p>
-        <p>Build a structured web page with headings, paragraphs and sections.</p>
-      </article>
+### 6.2 Include the required content
 
-      <article class="workshop-card">
-        <h2 class="workshop-title">Essential CSS</h2>
-        <p class="workshop-details">Beginner · 2 hours</p>
-        <p>Improve spacing, typography and visual hierarchy.</p>
-      </article>
+Your page must include:
 
-      <article class="workshop-card">
-        <h2 class="workshop-title">Responsive Layouts with Flexbox</h2>
-        <p class="workshop-details">Beginner · 3 hours</p>
-        <p>Arrange flexible cards and adapt a heading for narrow and wide screens.</p>
-      </article>
-    </section>
-  </main>
-</body>
-</html>
-```
+- A page heading: Campus Workshop Directory.
+- A short introductory sentence.
+- At least three workshop cards.
+- A title, difficulty level, duration and short description for each workshop.
 
-### 6.3 Add styles.css
+You may use the following content or write your own:
 
-```css
-/* Include padding and borders in declared widths. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+| Workshop | Level | Duration | Description |
+| --- | --- | --- | --- |
+| HTML Foundations | Beginner | 2 hours | Build a structured web page with headings, paragraphs and sections. |
+| Essential CSS | Beginner | 2 hours | Improve spacing, typography and visual hierarchy. |
+| Responsive Layouts with Flexbox | Beginner | 3 hours | Arrange flexible cards and adapt a heading for narrow and wide screens. |
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #27313b;
-  background: #f5f7fa;
-}
+### 6.3 Meet the layout requirements
 
-.page {
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 1rem;
-}
+#### Content and spacing
 
-/* Base layout: heading content stacks. */
-.catalogue-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
+- Use appropriate HTML elements for the page heading and workshop content.
+- Establish a clear hierarchy between the page title, workshop titles and supporting details.
+- Use consistent spacing inside and between cards.
+- Make a deliberate choice about what declared widths include.
 
-.catalogue-heading > * {
-  min-width: 0;
-}
+#### Flexbox
 
-.eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-}
+- Identify the correct parent element for arranging the cards.
+- Use Flexbox to arrange the card collection.
+- Allow cards to wrap when there is insufficient space.
+- Give cards flexible sizing rather than fixed widths.
+- Let the content determine each card's height.
 
-h1 {
-  margin: 0;
-  font-size: 1.75rem;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
+#### Responsive behaviour
 
-.catalogue-summary {
-  margin: 0;
-  max-width: 28rem;
-}
+- Include the viewport declaration.
+- Start with a layout suitable for a narrow screen.
+- Below `768px`, stack the page title and introductory content.
+- From `768px`, arrange the page title and introductory content in a row.
+- Keep the content readable without unintended horizontal scrolling from `320px` to `1200px`.
+- Optional: add an appropriate enhancement at `1024px` and explain why it helps.
 
-/* The parent arranges the card collection. */
-.workshop-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: stretch;
-}
+The number of card columns does not need to change at the same width as the page heading. Decide whether the cards fit by inspecting the available space.
 
-/* Each child controls its flexible starting size. */
-.workshop-card {
-  flex: 1 1 16rem;
-  min-width: 0;
-  padding: 1rem;
-  border: 1px solid #69717a;
-  border-radius: 0.5rem;
-  background: #ffffff;
-  overflow-wrap: anywhere;
-}
+### 6.4 Build incrementally
 
-.workshop-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
+1. Write the HTML and check the content order.
+2. Add typography, spacing and card styling.
+3. Arrange the cards using Flexbox.
+4. Add the responsive heading change.
+5. Test at the widths listed in Step 7 and between those widths.
+6. Investigate and correct an issue.
+7. Record your results and explain one layout decision.
 
-.workshop-details {
-  margin: 0 0 0.75rem;
-  font-size: 0.875rem;
-  color: #485360;
-}
+Use the earlier lesson examples as references, but adapt them to your own structure rather than copying a complete page.
 
-.workshop-card p:last-child {
-  margin: 0;
-}
+### 6.5 Submit your work
 
-/* Deliberate heading change at 768px. */
-@media (min-width: 768px) {
-  .catalogue-heading {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+Submit all four project files.
 
-  .catalogue-summary {
-    flex: 0 1 20rem;
-  }
-}
+Your submission must include:
 
-/* Optional practical enhancement at 1024px. */
-@media (min-width: 1024px) {
-  .page {
-    padding: 2rem 3rem;
-  }
+- Your own HTML and CSS implementation.
+- Actual test observations in `checks.md`.
+- An explanation of one layout decision.
+- An explanation of one issue you found and corrected.
+- A short README describing the page and how to open it.
 
-  h1 {
-    font-size: 2.25rem;
-  }
-}
-```
-
-### 6.4 Explain the implementation
-
-1. The viewport declaration prepares the page for responsive layouts.
-2. Global `border-box` makes width calculations easier to reason about.
-3. The page container provides outer spacing and limits content width.
-4. Heading sizes, weights and margins create a consistent reading order.
-5. `.workshop-list` arranges its direct children and allows wrapping.
-6. `flex: 1 1 16rem` gives each card a flexible starting size.
-7. The heading starts in a column and changes to a row at `768px`.
-8. At `1024px`, the example increases page padding and title size.
-9. `min-width: 0` and `overflow-wrap: anywhere` are additional safeguards in this worked example for narrow items and long text. Still test the actual content rather than assuming overflow is impossible.
-10. No fixed card heights are used, allowing descriptions and long titles to take the space they need.
-
-### 6.5 Preview the page
-
-Open `index.html` in a browser. Resize the viewport and inspect the heading, card widths, spacing and text wrapping. No JavaScript or build step is required for this example.
+Do not mark a test as passed until you have checked it in a browser.
 
 ## Step 7: Test and record the results
 
 ### Test sequence
 
-1. Open browser developer tools and enable a resizable viewport.
-2. Check `320px`, `390px`, `767px`, `768px`, `1023px`, `1024px` and `1200px`.
-3. Resize between the test widths as well: isolated screenshots can miss intermediate issues.
-4. Look for unintended horizontal scrolling, squeezed text and inconsistent spacing.
-5. Check that heading direction changes exactly at `768px`.
-6. Check that cards wrap naturally; do not assume a fixed column count.
-7. Record actual observations and one corrected issue.
+1. Open your page in a browser.
+2. Open browser developer tools and enable a resizable viewport.
+3. Check `320px`, `390px`, `767px`, `768px`, `1023px`, `1024px` and `1200px`.
+4. Resize between the test widths as well: isolated screenshots can miss intermediate issues.
+5. Look for unintended horizontal scrolling, squeezed text and inconsistent spacing.
+6. Check that heading direction changes exactly at `768px`.
+7. Check that cards wrap naturally; do not assume a fixed column count.
+8. If you added a `1024px` enhancement, check that it works as intended.
+9. Record actual observations and one corrected issue.
 
 ### checks.md template
+
+Copy the following template into `checks.md`:
 
 ```markdown
 # Responsive Layout Checks
@@ -515,8 +431,8 @@ Open `index.html` in a browser. Resize the viewport and inspect the heading, car
 | 390px | Stacked heading; readable cards | Not tested | Pending |
 | 767px | Heading remains a column | Not tested | Pending |
 | 768px | Heading becomes a row | Not tested | Pending |
-| 1023px | Row heading; base page padding and title size | Not tested | Pending |
-| 1024px | Row heading; larger padding and title | Not tested | Pending |
+| 1023px | Row heading; readable content; no horizontal scrolling | Not tested | Pending |
+| 1024px | Row heading; readable content; optional enhancement works if implemented | Not tested | Pending |
 | 1200px | Cards use available space without horizontal scrolling | Not tested | Pending |
 | Intermediate widths | No unintended horizontal scrolling | Not tested | Pending |
 
@@ -534,6 +450,13 @@ Open `index.html` in a browser. Resize the viewport and inspect the heading, car
 - Change made:
 - Widths retested:
 - Result:
+
+## Optional 1024px enhancement
+
+- Implemented: Yes / No
+- Change made, if applicable:
+- Why it helps:
+- Evidence from testing:
 ```
 
 ### Success checklist
@@ -545,9 +468,10 @@ Open `index.html` in a browser. Resize the viewport and inspect the heading, car
 - [ ] Intermediate widths checked.
 - [ ] One layout decision explained.
 - [ ] One corrected issue explained.
-- [ ] README and checks completed.
+- [ ] Optional 1024px enhancement tested, if implemented.
+- [ ] Project README and actual test results completed.
 
-The table above is a test plan, not a claim that the example has been browser-tested.
+The table above is a test plan. Replace “Not tested” and “Pending” with your actual observations and results. Do not invent a corrected issue or claim to have tested a width that you have not checked.
 
 ## Step 8: Debug systematically
 
@@ -557,7 +481,8 @@ The table above is a test plan, not a claim that the example has been browser-te
 4. Verify that `display: flex` is applied to the correct parent.
 5. Check whether the media query matches the current viewport.
 6. Look for crossed-out declarations and confirm which rule wins.
-7. Change one cause at a time and retest at 767px, 768px and 1024px.
+7. Change one cause at a time.
+8. Retest at the width where the problem occurred and around the relevant breakpoint.
 
 ### Specificity recap
 
@@ -600,7 +525,12 @@ Work in pairs or teams of four for 25 minutes. Each group prepares a finding, a 
 | Wrapping and sizing | Why do cards resize, and why can the last card be wider? | Two viewport widths; explain grow, shrink and basis |
 | Mobile-first changes | What should change at 768px, and what should stay the same? | Below, at and above the breakpoint |
 
-For sharing: explain the finding, show the example, explain what it demonstrates and answer one class question.
+For sharing:
+
+1. Explain the finding.
+2. Show the example.
+3. Explain what the observed result demonstrates.
+4. Answer one class question.
 
 ## Exit check
 
@@ -626,11 +556,16 @@ For sharing: explain the finding, show the example, explain what it demonstrates
 
 ## After class
 
-- Complete the practical and record your checks.
-- Finish README.md and checks.md before submission.
+- Complete your independent practical.
+- Record your actual test results in `checks.md`.
+- Finish your project README before submission.
+- Check that all four required files are included.
 - Optionally practise the taught Flexbox properties with Flexbox Froggy.
 - Next lesson in the source slides: External APIs and Data Presentation.
 
 ## Source note
 
-Adapted from `FED_Lesson_05_Essential_CSS_Responsive_UX.pdf` (51 pages). The source names MDN resources on Flexbox, media query fundamentals, box-sizing, CSS length units and fundamental text styling for further reading. The complete directory implementation and testing template in this guide are added teaching materials.
+Adapted from `FED_Lesson_05_Essential_CSS_Responsive_UX.pdf` (51 pages). The source names MDN resources on Flexbox, media query fundamentals, box-sizing, CSS length units and fundamental text styling for further reading.
+
+The Campus Workshop Directory task brief and testing template are added teaching materials. A complete implementation is intentionally not provided so that students can apply and demonstrate the lesson concepts independently.
+````
